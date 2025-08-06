@@ -1,7 +1,7 @@
 
 # 🔺 Pascal's Triangle Variations – C++ Implementations
 
-This project demonstrates **two variations** of computing values from **Pascal's Triangle** using **Brute Force** and **Optimal** approaches in C++.
+This project demonstrates **three variations** of computing values from **Pascal's Triangle** using **Brute Force** and **Optimal** approaches in C++.
 
 ---
 
@@ -23,6 +23,8 @@ This project demonstrates **two variations** of computing values from **Pascal's
   \text{nCr} = \text{nC(r-1)} \times \frac{n - r + 1}{r}
   \]
 
+---
+
 ### ✅ Variation 2 — Get Entire Row
 
 **File**: `Variation2.cpp`
@@ -38,33 +40,24 @@ This project demonstrates **two variations** of computing values from **Pascal's
 
 ---
 
-## 🔍 Sample Output
+### ✅ Variation 3 — Print Full Pascal's Triangle
 
-### Variation 1:
-```cpp
-int row = 4;
-int col = 3;
-```
-**Output:**
-```
-3
-3
-```
+**File**: `Variation3.cpp`
 
-> The 3rd element (0-based index) in the 3rd row (0-based index) is `3`.
+**Task**: Given a number `n`, print the full Pascal's Triangle up to the `n`th row.
 
----
+#### Approach:
+- Uses a helper function to generate each row using the efficient iterative formula.
+- Appends each row to a 2D vector and prints the full triangle.
 
-### Variation 2:
-```cpp
-int row = 4;
+#### Sample Output (for `row = 5`):
 ```
-**Output:**
+1 
+1 1 
+1 2 1 
+1 3 3 1 
+1 4 6 4 1 
 ```
-1 3 3 1
-```
-
-> These are the values of the 3rd row (0-based) in Pascal’s Triangle.
 
 ---
 
@@ -76,12 +69,14 @@ Make sure you have a C++ compiler like `g++`.
 ```bash
 g++ Variation1.cpp -o variation1
 g++ Variation2.cpp -o variation2
+g++ Variation3.cpp -o variation3
 ```
 
 ### Run:
 ```bash
 ./variation1
 ./variation2
+./variation3
 ```
 
 ---
@@ -94,6 +89,7 @@ g++ Variation2.cpp -o variation2
 |                | Optimal        | O(r)              | O(1)              |
 | **Variation 2** | Brute Force    | O(n²) (due to repeated nCr) | O(n) |
 |                | Optimal        | O(n)              | O(n)              |
+| **Variation 3** | Optimal Only   | O(n²) (to generate all rows) | O(n²) |
 
 ---
 
@@ -109,9 +105,9 @@ g++ Variation2.cpp -o variation2
 
 ## 💡 Notes
 
-- Pascal’s Triangle is 0-indexed in both variations.
-- The optimal approaches avoid heavy factorial calculations, making them more efficient and suitable for larger inputs.
-- Overflow is possible for large `n`, consider using `long long` or `__int128` for safety in real applications.
+- Pascal’s Triangle is 0-indexed internally.
+- Optimal methods avoid factorials and are suitable for large inputs.
+- To avoid overflow, use `long long` or `__int128` for very large values.
 
 ---
 
